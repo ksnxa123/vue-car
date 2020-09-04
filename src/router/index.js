@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Index from "../views/index.vue";
+import Index from "../views/index/index.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +8,14 @@ const routes = [
   {
     path: "/",
     name: "Index",
-    component: Index
+    component: Index,
+    children:[
+      {
+        path: "/user",
+        name: "User",
+        component: ()=>import('../views/users/index')
+      }
+    ]
   }
 ];
 

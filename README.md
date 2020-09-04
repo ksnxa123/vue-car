@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # web
 
 ## Project setup
@@ -22,3 +23,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# vue-car
+在线租车
+>>>>>>> 80f881e5d520ca83344ec71a72b71671d3bef4e0
