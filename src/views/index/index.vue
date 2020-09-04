@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="children-view" :class="{open:show}">
+        <div id="children-view" :class="{open:show}">
             <router-view></router-view>
         </div>
-        <Cars />
+        <!-- <Cars /> -->
         <Map />
         <Navbar />
     </div>
@@ -31,11 +31,22 @@ export default {
             return rotuer.name === "Index" ? false:true;
         }
     },
+    mounted(){
+        document.addEventListener('mouseup', (e) => {
+            const userCon = document.getElementById("children-view");
+            if(userCon && !userCon.contains(e.target)) {
+                this.$router.push({
+                    name: "Index"
+                })
+            }
+        })
+    },
+    watch: {}
 }
 </script>
 
 <style lang="scss">
-.children-view{
+#children-view{
     position: fixed;
     top: 0;
     bottom: 0;
