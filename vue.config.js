@@ -10,15 +10,15 @@ module.exports = {
    * webpack配置,see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
    **/
   chainWebpack: (config) => {
-    const svgRule = config.module.rule("svg");     
-    svgRule.uses.clear();     
-    svgRule
-    .use("svg-sprite-loader")
-    .loader("svg-sprite-loader")
-    .options({ 
-      symbolId: "icon-[name]",
-      include: ["./src/icons"] 
-    });
+    // const svgRule = config.module.rule("svg");     
+    // svgRule.uses.clear();     
+    // svgRule
+    // .use("svg-sprite-loader")
+    // .loader("svg-sprite-loader")
+    // .options({ 
+    //   symbolId: "icon-[name]",
+    //   include: ["./src/icons"] 
+    // });
   },
   configureWebpack: (config) => {
     config.resolve = { // 配置解析别名
@@ -58,18 +58,27 @@ module.exports = {
     port: 8080, // 访问端口
     https: false, // 编译失败时刷新页面
     hot: true, // 开启热加载
-    hotOnly: false
-    // proxy: {
-    //   [process.env.VUE_APP_API]: {
-    //       target: process.env.VUE_API_DEV_TARGET, //API服务器的地址
-    //       changeOrigin: true,
-    //       pathRewrite: {
-    //           [`^${process.env.VUE_APP_API}`]: ''
-    //       }
-    //   }
+    hotOnly: false,
+    proxy: { 
+      // 后端的接口：http://www.web-jshtml/api/cars   接口：/getCode/
+      [process.env.VUE_APP_API_LOGIN]: {
+          target: "http://www.web-jshtml.cn/api/cars", //API服务器的地址
+          changeOrigin: true,
+          pathRewrite: {
+            [`^${process.env.VUE_APP_API_LOGIN}`]: ''
+          }
+      },
+      // 本地开发环境请求地址：http://www.web-jshtml.cn/api/cars/getCode/
 
-      // http://www.web-jshtml.cn/api/vue3  /api/getCode
-    // }
+      // 前端的接口：http://www.web-jshtml/api/cars/web
+      [process.env.VUE_APP_API_WEB]: {
+        target: process.env.VUE_API_DEV_WEB_TARGET, //API服务器的地址
+        changeOrigin: true,
+        pathRewrite: {
+            [`^${process.env.VUE_APP_API_WEB}`]: ''
+        }
+      }
+    }
   },
   /**
    * 第三方插件配置

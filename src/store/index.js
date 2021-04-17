@@ -3,9 +3,11 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import location from './modules/locations'
+import app from './modules/app'
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  modules:{
+    location,
+    app
+  }
 });
