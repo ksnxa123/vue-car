@@ -66,6 +66,7 @@ export default {
         checkAmount(data){
             this.amount_id = data.id;
             this.amount = data.amount;
+            this.amount_number = data.amount;
             this.disabled_button = false;
         },
         /** 确认充值 */
@@ -84,7 +85,7 @@ export default {
                 //     window.location.href = payUrl;
                 //     return false;
                 // }
-                //
+                
 
                 localStorage.setItem("order_no", order_no);
                 // 跳转

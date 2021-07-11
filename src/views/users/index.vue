@@ -3,7 +3,7 @@
         <div class="user-info">
             <img src="../../assets/images/3.jpg" alt="">
             <div class="meta">
-                <h4 class="name">{{ usename }}</h4>
+                <h4 class="name">xa</h4>
                 <span>
                     文明驾驶分
                     <strong>0</strong>
@@ -43,7 +43,7 @@ export default {
     components: {},
     data(){
         return {
-            usename: this.$store.state.account.username
+            // usename: this.$store.state.account.username
         }
     },
     methods: {

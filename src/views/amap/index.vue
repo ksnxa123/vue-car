@@ -2,9 +2,8 @@
   <div class="amap-wrap">
       <el-amap vid="amapContainer" :amap-manager='amapManager' :events='events' :center="center" :zoom="zoom" class="amap-demo">
           <!-- 覆盖物圆 -->
-          <!-- <el-amap-circle v-for="item in circles" :key='item.id' :center='item.center' :radius='item.radius' :fillColor='item.color' :strokeColor='item.color' :strokeOpacity='item.strokeOpacity' :strokeWeight ='item.strokeWeight' -->
-          <!-- ></el-amap-circle> -->
-          <el-amap-circle :center='[120.153576,30.287459]' :radius='8'></el-amap-circle>
+          <el-amap-circle v-for="item in circles" :key='item.id' :center='item.center' :radius='item.radius' :fillColor='item.color' :strokeColor='item.color' :strokeOpacity='item.strokeOpacity' :strokeWeight ='item.strokeWeight'></el-amap-circle>
+          <!-- <el-amap-circle :center='[120.153576,30.287459]' :radius='8'></el-amap-circle> -->
           <!-- 覆盖物-停车场 -->
           <el-amap-marker v-for="(item,index) in parking" :key='item.id' :offset='item.offset' :content='item.content' :position='item.position' :vid='index'></el-amap-marker>
           <!-- 覆盖物 -->
